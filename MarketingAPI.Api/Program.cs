@@ -1,3 +1,7 @@
+using MarketingAPI.Core.Interfaces;
+using MarketingAPI.Core.Services;
+using MarketingAPI.Infrastructure.DataAccess.InMemory;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<ILeadRepository, InMemoryLeadRepository>();
+builder.Services.AddSingleton<ISectorRepository, InMemorySectorRepository>();
+
+builder.Services.AddScoped<LeadService>();
+builder.Services.AddScoped<SectorService>();
 
 var app = builder.Build();
 

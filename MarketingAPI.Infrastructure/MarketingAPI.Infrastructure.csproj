@@ -17,4 +17,8 @@
     <Folder Include="DataAccess\InMemory\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MarketingAPI.Core\MarketingAPI.Core.csproj" />
+  </ItemGroup>
+
 </Project>
