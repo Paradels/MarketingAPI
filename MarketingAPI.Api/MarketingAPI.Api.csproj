@@ -15,4 +15,10 @@
     <ProjectReference Include="..\MarketingAPI.Infrastructure\MarketingAPI.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Data\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
