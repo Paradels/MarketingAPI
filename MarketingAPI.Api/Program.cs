@@ -1,6 +1,10 @@
 using MarketingAPI.Core.Interfaces;
 using MarketingAPI.Core.Services;
 using MarketingAPI.Infrastructure.DataAccess.InMemory;
+using MarketingAPI.Infrastructure.Configuration;
+
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +19,11 @@ builder.Services.AddSingleton<ISectorRepository, InMemorySectorRepository>();
 
 builder.Services.AddScoped<LeadService>();
 builder.Services.AddScoped<SectorService>();
+
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 

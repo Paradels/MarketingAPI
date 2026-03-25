@@ -10,26 +10,32 @@ namespace MarketingAPI.Core.Services
 {
     public class LeadService
     {
-        private readonly ILeadRepository _repository;
+        private readonly IDataService _dataService;
 
-        public LeadService(ILeadRepository repository)
+        public LeadService(IDataService dataService)
         {
-            _repository = repository;
+            _dataService = dataService;
         }
 
         public Task<List<Lead>> GetAllAsync()
         {
-            return _repository.GetAllAsync();
+            return _dataService.GetLeadsAsync();
         }
 
         public Task<Lead?> GetByIdAsync(int id)
         {
-            return _repository.GetByIdAsync(id);
+            return _dataService.GetLeadByIdAsync(id);
         }
 
-        public Task AddLeadAsync(Lead lead)
+        public Task AddAsync(Lead lead)
         {
-            return _repository.AddAsync(lead);
+            // Opcional o no soportado en excel:
+            return Task.CompletedTask;
+        }
+
+        public async Task AddLeadAsync(Lead lead)
+        {
+            throw new NotImplementedException();
         }
     }
 }
