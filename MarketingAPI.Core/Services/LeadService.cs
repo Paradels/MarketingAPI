@@ -33,9 +33,10 @@ namespace MarketingAPI.Core.Services
             return Task.CompletedTask;
         }
 
-        public async Task AddLeadAsync(Lead lead)
+        public Task AddLeadAsync(Lead lead)
         {
-            throw new NotImplementedException();
+            // TODO: Falta implementar el guardado en el origen de datos.
+            return Task.CompletedTask;
         }
     }
 }
